@@ -9,6 +9,7 @@ header{
     align-items: center;
     min-height: 10vh;
 }
+
 nav>ul{
     list-style: none;
     padding: 0px;
@@ -30,58 +31,4 @@ main{
 }
 main>div{
     flex:1
-}
-.container-listagem{
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-
-}
-.produto-container{
-    box-sizing: border-box;
-    border: 1px solid #f7709d;
-    padding: 15px;
-    box-shadow: 0px 0px 10px 3px rgba(30, 30, 30, 0.1);
-    min-height: 200px;
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
- 
-}
-.container-cadastro>form{
-    display: flex;
-    flex-direction: column;
-    gap:15px;
-    padding: 100px;
-    border: 1px solid #f7709d;
-    box-shadow: 0px 0px 10px 3px rgba(30, 30, 30, 0.1);
-}
-form>input[type="text"],form>input[type="number"]{
-    padding: 8px;
-    border: 1px solid #f7709d;
-}
-form>input[type="text"],form>input[type="number"]:focus{
-    outline: 1px solid #0205a344;
-}
-form>input[type="submit"]{
-    max-width: 150px;
-    padding: 8px;
-    background-color: #f7709d;
-    color:white;
-    border: 1px solid #f0f0f0;
-    font-weight: bold;
-}
-.joinBtn:hover {
-  background-color: bisque;
-}
-
-.mensagem{
-    position: absolute;
-    right: 15px;
-    background-color: #F8D7DA;
-    color: #58151C;
-    padding: 8px 20px;
-    border: 1px solid rgb(241, 174, 181);
-    border-radius: 4px;
 }
