@@ -1,15 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-//import './index.css'
-//import App from './App.tsx'
-//import Container from './Container.tsx'
-import Pagina from './principal'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Principal from './principal';
+import Header from './header';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <Container nome='Header'/>
-    <Container nome='Body'/>
-    <Container nome='Footer'/> */}
-    <Pagina/>
-  </StrictMode>,
-)
+    <BrowserRouter>
+      <Routes>
+        <Route path="/principal" element={<Principal />} />
+        <Route path="/" element={<Principal />} />
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+);

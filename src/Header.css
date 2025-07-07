@@ -1,0 +1,34 @@
+.cabecalho {
+    background-color: #F2BBC9;
+    padding: 20px 40px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+}
+
+.logotipo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #da869b;
+    font-family: 'Georgia', serif;
+}
+
+.navegacao .links-navegacao {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.links-navegacao li a {
+    text-decoration: none;
+    color: #3b3b3b;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.links-navegacao li a:hover {
+    color: #da869b;
+}
