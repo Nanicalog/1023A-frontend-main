@@ -4,7 +4,7 @@ import './Header.css';
 function Principal() {
     return (
         <>
-
+            <Header />
             <main>
                 <h1>Sweet and confident</h1>
                 <p>Perfumes da melhor fragrância para você.</p>
