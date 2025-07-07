@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
-import './Pagina.css';
+import Header from "./Header";
 
-export default function Cadastrar() {
-  return (
-    
-  )
+function Cadastrar() {
+    return (
+        <>
+            <Header />
+          </>
+    );
+}
+export default Cadastrar;

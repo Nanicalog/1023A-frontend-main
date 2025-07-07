@@ -1,12 +1,14 @@
 import './pagina.css';
-
+import Header from './Header.tsx';
+import './Header.css';
 function Principal() {
     return (
         <>
-           <main>
-                 <h1>Sweet and confident</h1>
+
+            <main>
+                <h1>Sweet and confident</h1>
                 <p>Perfumes da melhor fragrância para você.</p>
-                
+
                 <div className="novidades">
                     <div className="produto">
                         <div className="imagem">
@@ -25,8 +27,7 @@ function Principal() {
                         <div className="imagem">
                             <img
                                 src="https://drogariaspacheco.vteximg.com.br/arquivos/ids/981577-1000-1000/image-1eba1445112b4c9ebf7ef5dc660c5987.jpg?v=638004925121800000"
-                                alt="Um convite à paixão intensa"
-                            />
+                                alt="Um convite à paixão intensa" />
                         </div>
                         <h2>Mon Paris</h2>
                         <p>Mon Paris — Um convite à paixão intensa</p>
