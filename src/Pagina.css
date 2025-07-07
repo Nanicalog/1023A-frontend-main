@@ -1,34 +1,111 @@
-body{
-    margin: 0px;
-}
-header{
-    background-color: #ffc4d8;
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 10vw;
-    align-items: center;
-    min-height: 10vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav>ul{
-    list-style: none;
-    padding: 0px;
-    display: flex;
-    gap:15px
-}
-nav>ul>li>a{
-    text-decoration: none;
-    color: #f7709d;
-    font-weight: bold;
-
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f9f9f9;
+  color: #111;
+  padding: 40px;
 }
 
-main{
-    margin-top: 15px;
-    padding: 0px 10vw;
-    display: flex;
-    position: relative;
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
-main>div{
-    flex:1
+
+.logotipo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navegacao .links-navegacao {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.links-navegacao li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.links-navegacao li a:hover {
+  color: #9a4ef5;
+}
+
+.novidades {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.produto {
+  background-color: #fff;
+border-radius: 5px;
+  padding: 30px 20px;
+  width: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.produto:hover {
+  transform: translateY(-8px);
+}
+
+.imagem {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.imagem img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.produto h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.produto p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.produto strong {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+main h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+main p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.rodape {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
 }
