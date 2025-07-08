@@ -10,7 +10,7 @@
 .logotipo {
     font-size: 2rem;
     font-weight: bold;
-    color: #da869b;
+    color: #d65e7c;
     font-family: 'Georgia', serif;
 }
 
@@ -22,7 +22,7 @@
 
 .links-navegacao li a {
     text-decoration: none;
-    color: #3b3b3b;
+    color: #d65e7c;;
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
