@@ -112,8 +112,9 @@ main p {
     font-size: 1rem;
     color: #ffffff;
 }
+
 /* Espaço entre o cabeçalho e os produtos */
-.titulo-produtos  {
+.titulo-produtos {
     font-size: 2.2rem;
     text-align: center;
     margin-top: 40px;
@@ -124,7 +125,7 @@ main p {
 
 /* Espaço extra no rodapé */
 .rodape {
-    margin-top: 100px; 
+    margin-top: 100px;
     padding: 20px;
     text-align: center;
     font-size: 0.9rem;
@@ -133,3 +134,43 @@ main p {
     border-radius: 10px 10px 0 0;
 }
 
+/* Título principal */
+.titulo-produtos {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    color: #3b0a0a;
+}
+
+/* Seção de lançamento */
+.lancamento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Produto principal */
+.produto-principal {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Imagem principal */
+.imagem-principal img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.imagem-principal img:hover {
+    transform: scale(1.05);
+}
