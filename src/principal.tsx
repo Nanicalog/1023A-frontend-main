@@ -27,6 +27,9 @@ function Principal() {
           </div>
         </div>
       </main>
+       <footer className="rodape">
+                <p>&copy; 2025 Plumeria – Todos os direitos reservados.</p>
+            </footer>
     </>
   );
 }
