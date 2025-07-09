@@ -9,7 +9,7 @@ export default function Header() {
         <ul className="links-navegacao">
           <li><Link to="/produtos">Produtos</Link></li>
           <li><Link to="/administrador">Administrador</Link></li>
-          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/cadastrar">Cadastrar</Link></li>
         </ul>
       </nav>
     </header>
