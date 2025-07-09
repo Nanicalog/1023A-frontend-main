@@ -6,65 +6,23 @@ function Principal() {
     return (
         <>
             <Header />
-
+            
             <main>
-                <h1 className="titulo-produtos">Conheça Nossas Fragancias</h1>
-                <p>Perfumes da melhor fragrância para você.</p>
+                <h1 className="titulo-produtos">Conheça Nossas Fragâncias</h1>
 
-                <div className="novidades">
-                    <div className="produto">
-                        <div className="imagem">
+                <div className="lancamento">
+                    {/* sweet tooth */}
+                    <div className="produto-principal">
+                        <div className="imagem-principal">
                             <img
                                 src="https://acdn-us.mitiendanube.com/stores/001/487/363/products/71wwanx59kl-f133ac9272d2e56ccb17480290026030-1024-1024.png"
-                                alt="Explosão doce e envolvente que desperta os sentidos com charme e ousadia."
+                                alt="Explosão doce e envolvente"
                             />
                         </div>
-                        <h2>Sweet Tooth</h2>
-                        <p>Sweet Tooth — Explosão doce e envolvente</p>
-                        <strong>$400.50</strong>
-                    </div>
 
-                    <div className="produto">
-                        <div className="imagem">
-                            <img
-                                src="https://drogariaspacheco.vteximg.com.br/arquivos/ids/981577-1000-1000/image-1eba1445112b4c9ebf7ef5dc660c5987.jpg?v=638004925121800000"
-                                alt="Um convite à paixão intensa"
-                            />
-                        </div>
-                        <h2>Mon Paris</h2>
-                        <p>Mon Paris — Um convite à paixão intensa</p>
-                        <strong>$800.00</strong>
-                    </div>
-
-                    <div className="produto">
-                        <div className="imagem">
-                            <img
-                                src="https://dcdn-us.mitiendanube.com/stores/002/272/909/products/ariana-thank-031-ba00c99068ec068d6816618102060919-1024-1024.jpg"
-                                alt="Doce, confiante e ousada."
-                            />
-                        </div>
-                        <h2>Thank U Next - Ariana Grande</h2>
-                        <p>Thank U Next — doce, confiante e ousada.</p>
-                        <strong>$300.00</strong>
-                    </div>
-
-                    <div className="produto">
-                        <div className="imagem">
-                            <img
-                                src="https://images.tcdn.com.br/img/img_prod/611043/miss_dior_perfume_feminino_edp_50ml_dior_6349_1_0b303ade70f98b1992e3a1deb4d404aa.jpg"
-                                alt="Elegância em forma de aroma"
-                            />
-                        </div>
-                        <h2>Miss Dior</h2>
-                        <p>Miss Dior — elegância em forma de aroma</p>
-                        <strong>$800.00</strong>
                     </div>
                 </div>
             </main>
-
-            <footer className="rodape">
-                <p>&copy; 2025 Plumeria – Todos os direitos reservados.</p>
-            </footer>
         </>
     );
 }
