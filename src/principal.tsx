@@ -1,5 +1,4 @@
 import './pagina.css';
-import { StrictMode } from 'react';
 import Header from './Header.tsx';
 import './Principal.css';
 import './Header.css';
