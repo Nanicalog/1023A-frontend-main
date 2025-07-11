@@ -9,7 +9,7 @@ function Principal() {
 
             <main>
                 <h1 className="titulo-produtos">Conheça Nossas Fragâncias</h1>
-              
+
                 <div className="novidades">
                     {/* sweet tooth */}
                     <div className="produto">
