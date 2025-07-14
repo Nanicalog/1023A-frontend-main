@@ -127,3 +127,20 @@ body, html {
   background-color: #f2dede;
   color: #a94442;
 }
+
+/*delete*/
+.botao-limpar {
+  margin-left: 10px;
+  background-color: #f2bbc9;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #111;
+  cursor: pointer;
+}
+
+.botao-limpar:hover {
+  background-color: #da869b;
+  color: white;
+}
+

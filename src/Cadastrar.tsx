@@ -1,19 +1,42 @@
-import { useState } from 'react';
-import Header from './Header'; // Removida a extensão .tsx (opcional)
-import './Header.css';   
+import { useState, useEffect } from 'react';
+import Header from './Header';
+import './Header.css';
+
+interface Produto {
+  id: number;
+  nome: string;
+  preco: number;
+  categoria: string;
+}
 
 export default function FormularioCadastro() {
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [categoria, setCategoria] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+
+  // Buscar produtos ao carregar a página
+  async function buscarProdutos() {
+    try {
+      const resposta = await fetch('http://localhost:8000/produtos');
+      const dados = await resposta.json();
+      setProdutos(dados);
+    } catch (error) {
+      console.error('Erro ao buscar produtos', error);
+    }
+  }
+
+  useEffect(() => {
+    buscarProdutos();
+  }, []);
 
   const handleSubmit = async (evento: React.FormEvent) => {
     evento.preventDefault();
     setMensagem('Enviando...');
 
     try {
-      const resposta = await fetch('http://localhost:3000/Produtos', {
+      const resposta = await fetch('http://localhost:8000/produtos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -32,10 +55,37 @@ export default function FormularioCadastro() {
       setNome('');
       setPreco('');
       setCategoria('');
+
+      // Atualiza lista de produtos após cadastro
+      buscarProdutos();
+
     } catch (erro: any) {
       setMensagem(`Erro: ${erro.message}`);
     }
   };
+
+  // Função para deletar produto pelo id
+  async function deletarProduto(id: number) {
+    const confirmar = window.confirm('Deseja realmente excluir este produto?');
+    if (!confirmar) return;
+
+    try {
+      const resposta = await fetch(`http://localhost:8000/produtos/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (resposta.ok) {
+        // Atualiza a lista removendo o produto excluído
+        setProdutos(produtos.filter(p => p.id !== id));
+        setMensagem('Produto excluído com sucesso!');
+      } else {
+        setMensagem('Erro ao excluir produto');
+      }
+    } catch (error) {
+      console.error('Erro ao deletar produto', error);
+      setMensagem('Erro ao excluir produto');
+    }
+  }
 
   return (
     <>
@@ -83,12 +133,29 @@ export default function FormularioCadastro() {
               </select>
             </div>
 
-            <button type="submit" className="botao-enviar">Cadastrar Produto</button> 
+            <button type="submit" className="botao-enviar">Cadastrar Produto</button>
           </form>
 
           {mensagem && <p className="mensagem-status">{mensagem}</p>}
         </div>
       </section>
+
+      <section className="lista-produtos">
+        <h2>Produtos Cadastrados</h2>
+        {produtos.length === 0 ? (
+          <p>Nenhum produto cadastrado.</p>
+        ) : (
+          <ul>
+            {produtos.map(produto => (
+              <li key={produto.id}>
+                {produto.nome} - R$ {produto.preco.toFixed(2)} - Categoria: {produto.categoria}{' '}
+                <button onClick={() => deletarProduto(produto.id)}>Excluir</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </>
   );
 }
+

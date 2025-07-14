@@ -176,3 +176,27 @@ main p {
 .imagem-principal img:hover {
     transform: scale(1.05);
 }
+
+/*excluir*/
+.lista-produtos ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-produtos li {
+  margin-bottom: 8px;
+}
+
+.lista-produtos button {
+  margin-left: 12px;
+  background-color: #da869b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lista-produtos button:hover {
+  background-color: #c45a78;
+}
