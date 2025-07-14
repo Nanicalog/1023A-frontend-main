@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import './pagina.css';
-import Header from './Header.tsx';
-import './Header.css';
-import cadastrar from './Cadastrar.tsx';
+import './cadastrar.css'; // Correção: removido o espaço após 'import'
+import Header from './Header'; // Removida a extensão .tsx (opcional)
+import './Header.css';   
 
 export default function FormularioCadastro() {
   const [nome, setNome] = useState('');
@@ -42,6 +41,7 @@ export default function FormularioCadastro() {
   return (
     <>
       <Header />
+      {/* formulario de cadastro */}
 
       <section className="formulario-secao">
         <div className="formulario-cartao">
@@ -85,7 +85,8 @@ export default function FormularioCadastro() {
               </select>
             </div>
 
-            <button type="submit" className="botao-enviar">Cadastrar Produto</button>
+              {/* Botão enviar */}
+            <button type="submit" className="botao-enviar">Cadastrar Produto</button> 
           </form>
 
           {mensagem && <p className="mensagem-status">{mensagem}</p>}

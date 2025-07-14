@@ -11,6 +11,7 @@ body {
     padding: 40px;
 }
 
+/*cabeçalho*/ 
 .cabecalho {
     background-color: #F2BBC9;
     padding: 20px 40px;
@@ -26,7 +27,7 @@ body {
     font-weight: bold;
     color: #da869b;
     font-family: 'Georgia', serif;
-}
+} /*logo*/
 
 .navegacao .links-navegacao {
     list-style: none;

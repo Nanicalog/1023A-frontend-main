@@ -1,9 +1,4 @@
-/* Remove margens padrão */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 body, html {
   width: 100%;
@@ -53,4 +48,82 @@ body, html {
   font-size: 1.25rem;
   color: #555;
   margin-bottom: 30px;
+}
+
+
+/*formulario*/ 
+
+.formulario-secao {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.formulario-cartao {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #F2BBC9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-formulario {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario {
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #F2BBC9;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.botao-enviar {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #F2BBC9;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-enviar:hover {
+  background-color: #fd4a77;
+}
+
+.mensagem-status {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Mensagem de sucesso */
+.mensagem-status:contains("sucesso") {
+  background-color: #F2BBC9;
+  color: #df9aac;
+}
+
+/* Mensagem de erro */
+.mensagem-status:contains("Erro") {
+  background-color: #f2dede;
+  color: #a94442;
 }
