@@ -22,35 +22,6 @@ body, html {
   color: #111;
   margin-bottom: 30px;
 }
-
-/* Card de produto */
-.lancamento {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.produto-card {
-  background-color: #F2BBC9;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  max-width: 350px;
-}
-
-.imagem-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-.subtitulo {
-  text-align: center;
-  font-size: 1.25rem;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-
 /*formulario*/ 
 
 .formulario-secao {

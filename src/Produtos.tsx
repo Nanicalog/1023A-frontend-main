@@ -1,28 +1,48 @@
 import './pagina.css';
 import Header from './Header.tsx';
 import './Header.css';
+import { useState } from 'react';
 
 function Principal() {
+    // Estado para controlar a exibição do Sweet Tooth
+    const [mostrarSweetTooth, setMostrarSweetTooth] = useState(true);
+
+    // Função para excluir o Sweet Tooth
+    const handleExcluirSweetTooth = () => {
+        if (window.confirm('Tem certeza que deseja excluir o Sweet Tooth?')) {
+            setMostrarSweetTooth(false);
+        }
+    };
+
     return (
         <>
             <Header />
 
             <main>
                 <h1 className="titulo-produtos">Conheça Nossas Fragâncias</h1>
-
                 <div className="novidades">
-                    {/* sweet tooth */}
-                    <div className="produto">
-                        <div className="imagem">
-                            <img
-                                src="https://acdn-us.mitiendanube.com/stores/001/487/363/products/71wwanx59kl-f133ac9272d2e56ccb17480290026030-1024-1024.png"
-                                alt="Explosão doce e envolvente"
-                            />
+                    {/* Sweet Tooth (dinâmico, pode ser excluído) */}
+                    {mostrarSweetTooth && (
+                        <div className="produto">
+                            <div className="imagem">
+                                <img
+                                    src="https://acdn-us.mitiendanube.com/stores/001/487/363/products/71wwanx59kl-f133ac9272d2e56ccb17480290026030-1024-1024.png"
+                                    alt="Explosão doce e envolvente"
+                                />
+                            </div>
+                            <h2>Sweet Tooth</h2>
+                            <p>Sweet Tooth — Explosão doce e envolvente</p>
+                            <strong>$400.50</strong>
+                            <button 
+                                className="excluir-btn"
+                                onClick={handleExcluirSweetTooth}
+                            >
+                                Excluir
+                            </button>
                         </div>
-                        <h2>Sweet Tooth</h2>
-                        <p>Sweet Tooth — Explosão doce e envolvente</p>
-                        <strong>$400.50</strong>
-                    </div>
+                    )}
+
+                    {/* Os outros perfumes (FIXOS, sem botão de excluir) */}
 
                     {/* ultra male */}
                     <div className="produto">
@@ -138,3 +158,5 @@ function Principal() {
 }
 
 export default Principal;
+
+

@@ -3,6 +3,7 @@ import Header from './Header.tsx';
 import './Principal.css';
 import './Header.css';
 
+
 function Principal() {
   return (
     <>
@@ -34,3 +35,6 @@ function Principal() {
 }
 
 export default Principal;
+
+
+

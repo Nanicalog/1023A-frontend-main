@@ -125,6 +125,7 @@ main p {
 }
 
 
+
 /* Espaço extra no rodapé */
 .rodape {
     margin-top: 100px;
@@ -144,6 +145,11 @@ main p {
     margin-bottom: 3rem;
     font-weight: bold;
     color: #3b0a0a;
+}
+.subtitulo {
+  text-align: center;
+  margin-top: 0.5rem; /* opcional para espaçamento */
+  margin-bottom: 2rem; /* opcional para espaçamento */
 }
 
 /* Seção de lançamento */
