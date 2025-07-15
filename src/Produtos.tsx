@@ -33,7 +33,7 @@ function Principal() {
                             <h2>Sweet Tooth</h2>
                             <p>Sweet Tooth — Explosão doce e envolvente</p>
                             <strong>$400.50</strong>
-                            <button 
+                            <button
                                 className="excluir-btn"
                                 onClick={handleExcluirSweetTooth}
                             >
@@ -158,5 +158,4 @@ function Principal() {
 }
 
 export default Principal;
-
 

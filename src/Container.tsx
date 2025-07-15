@@ -18,8 +18,8 @@ function Container({ nome }: ContainerProps) {
       <input
         type="text"
         placeholder="Mostrar Texto"
-        onChange={handleInputChange}
-        value={texto}
+        onChange={handleInputChange} //hama handleInputChange quando o valor muda
+        value={texto} //valor declarado como tipo texto
       />
     </div>
   );

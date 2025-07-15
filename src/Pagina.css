@@ -11,7 +11,7 @@ body {
     padding: 40px;
 }
 
-/*cabeçalho*/ 
+/*cabeçalho*/
 .cabecalho {
     background-color: #F2BBC9;
     padding: 20px 40px;
@@ -27,7 +27,9 @@ body {
     font-weight: bold;
     color: #da869b;
     font-family: 'Georgia', serif;
-} /*logo*/
+}
+
+/*logo*/
 
 .navegacao .links-navegacao {
     list-style: none;
@@ -146,10 +148,13 @@ main p {
     font-weight: bold;
     color: #3b0a0a;
 }
+
 .subtitulo {
-  text-align: center;
-  margin-top: 0.5rem; /* opcional para espaçamento */
-  margin-bottom: 2rem; /* opcional para espaçamento */
+    text-align: center;
+    margin-top: 0.5rem;
+    /* opcional para espaçamento */
+    margin-bottom: 2rem;
+    /* opcional para espaçamento */
 }
 
 /* Seção de lançamento */
@@ -185,24 +190,59 @@ main p {
 
 /*excluir*/
 .lista-produtos ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .lista-produtos li {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .lista-produtos button {
-  margin-left: 12px;
-  background-color: #da869b;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+    margin-left: 12px;
+    background-color: #da869b;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .lista-produtos button:hover {
-  background-color: #c45a78;
+    background-color: #c45a78;
+}
+/* Estilos para o botão de excluir */
+.excluir-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.excluir-btn:hover {
+    background-color: #e60000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.excluir-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone para o botão (usando pseudo-elemento) */
+.excluir-btn::before {
+    content: "🗑️";
+    font-size: 16px;
 }

@@ -1,54 +1,59 @@
-import { useState } from 'react';
-import './pagina.css';
-import Header from './Header';
-import './Header.css';
-import ExcluirProduto from './ExcluirProduto';
+import { useState } from 'react'; // Importa o hook useState para gerenciar estado dentro do componente
+import './pagina.css';            // Importa o arquivo CSS específico para a página
+import Header from './Header';    // Importa o componente Header (provavelmente um cabeçalho da página)
+import './Header.css';            // Importa o CSS do Header
 
 export default function FormularioCadastro() {
-  const [nome, setNome] = useState('');
-  const [preco, setPreco] = useState('');
-  const [categoria, setCategoria] = useState('');
-  const [mensagem, setMensagem] = useState('');
+  // Estados para armazenar os valores dos campos do formulário
+  const [nome, setNome] = useState('');         // Nome do produto
+  const [preco, setPreco] = useState('');       // Preço do produto
+  const [categoria, setCategoria] = useState(''); // Categoria do produto (Feminino/Masculino)
+  const [mensagem, setMensagem] = useState(''); // Mensagem de status (ex: sucesso ou erro)
 
+  // Função chamada quando o formulário é enviado
   const handleSubmit = async (evento: React.FormEvent) => {
-    evento.preventDefault();
-    setMensagem('Enviando...');
+    evento.preventDefault(); // Evita que a página recarregue ao enviar o formulário
+    setMensagem('Enviando...'); // Mostra uma mensagem temporária enquanto envia os dados
 
-    // ✅ Validação básica para evitar enviar preço inválido
+    // ✅ Validação do preço para garantir que seja um número válido e positivo
     const precoConvertido = parseFloat(preco);
     if (isNaN(precoConvertido) || precoConvertido <= 0) {
       setMensagem('Por favor, insira um preço válido.');
-      return;
+      return; // Para a execução se o preço for inválido
     }
 
     try {
+      // Faz uma requisição HTTP POST para o backend, enviando os dados do produto em JSON
       const resposta = await fetch('http://localhost:3000/Produtos', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        method: 'POST', // Método HTTP POST para criar um novo recurso
+        headers: { 'Content-Type': 'application/json' }, // Cabeçalho indicando que está enviando JSON
+        body: JSON.stringify({ // Converte os dados para JSON antes de enviar
           nome,
           preco: precoConvertido,
           categoria
         })
       });
 
+      // Se a resposta não for bem-sucedida (status 4xx ou 5xx)
       if (!resposta.ok) {
-        // Se a resposta não for JSON válido, evita erro ao tentar parsear
-        let erroMsg = 'Erro ao cadastrar produto';
+        let erroMsg = 'Erro ao cadastrar produto'; // Mensagem padrão
         try {
+          // Tenta ler a resposta como JSON para obter uma mensagem de erro mais específica
           const erro = await resposta.json();
           erroMsg = erro.mensagem || erroMsg;
         } catch (_) {
-          // Se não for JSON, mantém a mensagem padrão
+          // Se não conseguir ler como JSON, mantém a mensagem padrão
         }
-        throw new Error(erroMsg);
+        throw new Error(erroMsg); // Lança um erro para cair no catch
       }
 
+      // Se tudo der certo, mostra mensagem de sucesso e limpa os campos
       setMensagem('Produto cadastrado com sucesso!');
       setNome('');
       setPreco('');
       setCategoria('');
     } catch (erro: any) {
+      // Se houver erro na requisição ou outro problema, mostra a mensagem
       console.error('Erro ao cadastrar produto:', erro);
       setMensagem(`Erro: ${erro.message}`);
     }
@@ -56,37 +61,42 @@ export default function FormularioCadastro() {
 
   return (
     <>
+      {/* Renderiza o componente Header no topo da página */}
       <Header />
-      <ExcluirProduto />
 
       <section className="formulario-secao">
         <div className="formulario-cartao">
           <h2 className="titulo-formulario">Cadastrar Novo Produto</h2>
 
+          {/* Formulário com evento onSubmit que chama handleSubmit */}
           <form onSubmit={handleSubmit}>
+
+            {/* Campo para digitar o nome do produto */}
             <div className="campo-formulario">
               <label htmlFor="nome">Nome:</label>
               <input
                 id="nome"
                 type="text"
-                value={nome}
-                onChange={e => setNome(e.target.value)}
-                required
+                value={nome} // Valor vinculado ao estado nome
+                onChange={e => setNome(e.target.value)} // Atualiza o estado sempre que o usuário digita
+                required // Campo obrigatório
               />
             </div>
 
+            {/* Campo para digitar o preço do produto */}
             <div className="campo-formulario">
               <label htmlFor="preco">Preço:</label>
               <input
                 id="preco"
-                type="number"
-                step="0.01"
+                type="number" // Só permite números
+                step="0.01"   // Permite casas decimais
                 value={preco}
                 onChange={e => setPreco(e.target.value)}
                 required
               />
             </div>
 
+            {/* Campo para selecionar a categoria */}
             <div className="campo-formulario">
               <label htmlFor="categoria">Categoria:</label>
               <select
@@ -101,11 +111,13 @@ export default function FormularioCadastro() {
               </select>
             </div>
 
+            {/* Botão que envia o formulário */}
             <button type="submit" className="botao-enviar">
               Cadastrar Produto
             </button>
           </form>
 
+          {/* Se houver alguma mensagem (erro ou sucesso), exibe abaixo do formulário */}
           {mensagem && <p className="mensagem-status">{mensagem}</p>}
         </div>
       </section>
