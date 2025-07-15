@@ -1,95 +1,63 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import './pagina.css';
 import Header from './Header';
 import './Header.css';
-
-interface Produto {
-  id: number;
-  nome: string;
-  preco: number;
-  categoria: string;
-}
+import ExcluirProduto from './ExcluirProduto';
 
 export default function FormularioCadastro() {
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [categoria, setCategoria] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [produtos, setProdutos] = useState<Produto[]>([]);
-
-  // Buscar produtos ao carregar a página
-  async function buscarProdutos() {
-    try {
-      const resposta = await fetch('http://localhost:8000/produtos');
-      const dados = await resposta.json();
-      setProdutos(dados);
-    } catch (error) {
-      console.error('Erro ao buscar produtos', error);
-    }
-  }
-
-  useEffect(() => {
-    buscarProdutos();
-  }, []);
 
   const handleSubmit = async (evento: React.FormEvent) => {
     evento.preventDefault();
     setMensagem('Enviando...');
 
+    // ✅ Validação básica para evitar enviar preço inválido
+    const precoConvertido = parseFloat(preco);
+    if (isNaN(precoConvertido) || precoConvertido <= 0) {
+      setMensagem('Por favor, insira um preço válido.');
+      return;
+    }
+
     try {
-      const resposta = await fetch('http://localhost:8000/produtos', {
+      const resposta = await fetch('http://localhost:3000/Produtos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nome,
-          preco: parseFloat(preco),
+          preco: precoConvertido,
           categoria
         })
       });
 
       if (!resposta.ok) {
-        const erro = await resposta.json();
-        throw new Error(erro.mensagem || 'Erro ao cadastrar produto');
+        // Se a resposta não for JSON válido, evita erro ao tentar parsear
+        let erroMsg = 'Erro ao cadastrar produto';
+        try {
+          const erro = await resposta.json();
+          erroMsg = erro.mensagem || erroMsg;
+        } catch (_) {
+          // Se não for JSON, mantém a mensagem padrão
+        }
+        throw new Error(erroMsg);
       }
 
       setMensagem('Produto cadastrado com sucesso!');
       setNome('');
       setPreco('');
       setCategoria('');
-
-      // Atualiza lista de produtos após cadastro
-      buscarProdutos();
-
     } catch (erro: any) {
+      console.error('Erro ao cadastrar produto:', erro);
       setMensagem(`Erro: ${erro.message}`);
     }
   };
 
-  // Função para deletar produto pelo id
-  async function deletarProduto(id: number) {
-    const confirmar = window.confirm('Deseja realmente excluir este produto?');
-    if (!confirmar) return;
-
-    try {
-      const resposta = await fetch(`http://localhost:8000/produtos/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (resposta.ok) {
-        // Atualiza a lista removendo o produto excluído
-        setProdutos(produtos.filter(p => p.id !== id));
-        setMensagem('Produto excluído com sucesso!');
-      } else {
-        setMensagem('Erro ao excluir produto');
-      }
-    } catch (error) {
-      console.error('Erro ao deletar produto', error);
-      setMensagem('Erro ao excluir produto');
-    }
-  }
-
   return (
     <>
       <Header />
+      <ExcluirProduto />
 
       <section className="formulario-secao">
         <div className="formulario-cartao">
@@ -133,29 +101,14 @@ export default function FormularioCadastro() {
               </select>
             </div>
 
-            <button type="submit" className="botao-enviar">Cadastrar Produto</button>
+            <button type="submit" className="botao-enviar">
+              Cadastrar Produto
+            </button>
           </form>
 
           {mensagem && <p className="mensagem-status">{mensagem}</p>}
         </div>
       </section>
-
-      <section className="lista-produtos">
-        <h2>Produtos Cadastrados</h2>
-        {produtos.length === 0 ? (
-          <p>Nenhum produto cadastrado.</p>
-        ) : (
-          <ul>
-            {produtos.map(produto => (
-              <li key={produto.id}>
-                {produto.nome} - R$ {produto.preco.toFixed(2)} - Categoria: {produto.categoria}{' '}
-                <button onClick={() => deletarProduto(produto.id)}>Excluir</button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
     </>
   );
 }
-
