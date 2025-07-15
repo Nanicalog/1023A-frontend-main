@@ -1,0 +1,93 @@
+/* Fundo suave em tom rosa claro */
+body {
+  background: #fde6ec; /* rosa bem claro */
+  font-family: 'Arial', sans-serif;
+  color: #4a2c3f;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container do formulário */
+.form-container {
+  background: #f9c7d4; /* tom intermediário de rosa */
+  border: 2px solid #f7a8bb;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 25px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+.form-container h2 {
+  color: #a83c65; /* rosa mais escuro */
+  margin-bottom: 20px;
+}
+
+/* Labels e inputs */
+.form-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #7b2e4a;
+}
+
+.form-container input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #f7a8bb;
+  border-radius: 8px;
+  background: #fff0f4; /* rosa bem clarinho */
+  color: #4a2c3f;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Foco no input */
+.form-container input:focus {
+  outline: none;
+  border-color: #d56a8a;
+  box-shadow: 0 0 8px #f4b6c8;
+}
+
+/* Botão */
+.form-container button {
+  background: #d46c8a; /* rosa médio */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-container button:hover {
+  background: #b84f71; /* rosa mais escuro no hover */
+  transform: scale(1.05);
+}
+
+/* Mensagem de status */
+.mensagem {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Se for mensagem de sucesso */
+.mensagem:contains("sucesso") {
+  background: #ffeaf2;
+  color: #7b2e4a;
+  border: 1px solid #f7a8bb;
+}
+
+/* Se for mensagem de erro */
+.mensagem:contains("Erro") {
+  background: #ffd6e2;
+  color: #8b2b4d;
+  border: 1px solid #e38ba4;
+}
