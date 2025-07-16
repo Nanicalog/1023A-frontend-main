@@ -23,9 +23,9 @@ export default function FormularioCadastro() {
     }
 
     try {
-      // Faz uma requisição HTTP POST para o backend, enviando os dados do produto em JSON
+      // usa o facth para fazer uma requisição no http post 
       const resposta = await fetch('http://localhost:3000/Produtos', {
-        method: 'POST', // Método HTTP POST para criar um novo recurso
+        method: 'POST', // Método POST para enviar dados o banco
         headers: { 'Content-Type': 'application/json' }, // Cabeçalho indicando que está enviando JSON
         body: JSON.stringify({ // Converte os dados para JSON antes de enviar
           nome,
@@ -34,13 +34,13 @@ export default function FormularioCadastro() {
         })
       });
 
-      // Se a resposta não for bem-sucedida (status 4xx ou 5xx)
+      // Se a resposta não for bem-sucedida
       if (!resposta.ok) {
         let erroMsg = 'Erro ao cadastrar produto'; // Mensagem padrão
         try {
           // Tenta ler a resposta como JSON para obter uma mensagem de erro mais específica
           const erro = await resposta.json();
-          erroMsg = erro.mensagem || erroMsg;
+          erroMsg = erro.mensagem || erroMsg;//mensagem que veio do back se tiver
         } catch (_) {
           // Se não conseguir ler como JSON, mantém a mensagem padrão
         }
@@ -61,7 +61,7 @@ export default function FormularioCadastro() {
 
   return (
     <>
-      {/* Renderiza o componente Header no topo da página */}
+      {/* form */}
       <Header />
 
       <section className="formulario-secao">
