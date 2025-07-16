@@ -1,7 +1,7 @@
-import { useState } from 'react'; // Importa o hook useState para gerenciar estado dentro do componente
-import './pagina.css';            // Importa o arquivo CSS específico para a página
-import Header from './Header';    // Importa o componente Header (provavelmente um cabeçalho da página)
-import './Header.css';            // Importa o CSS do Header
+import { useState } from 'react';
+import './pagina.css';      
+import Header from './Header'; 
+import './Header.css';    
 
 export default function FormularioCadastro() {
   // Estados para armazenar os valores dos campos do formulário
@@ -15,7 +15,7 @@ export default function FormularioCadastro() {
     evento.preventDefault(); // Evita que a página recarregue ao enviar o formulário
     setMensagem('Enviando...'); // Mostra uma mensagem temporária enquanto envia os dados
 
-    // ✅ Validação do preço para garantir que seja um número válido e positivo
+    // Validação do preço para garantir que seja um número válido e positivo
     const precoConvertido = parseFloat(preco);
     if (isNaN(precoConvertido) || precoConvertido <= 0) {
       setMensagem('Por favor, insira um preço válido.');
