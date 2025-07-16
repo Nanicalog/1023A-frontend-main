@@ -68,7 +68,7 @@ export default function FormularioCadastro() {
         <div className="formulario-cartao">
           <h2 className="titulo-formulario">Cadastrar Novo Produto</h2>
 
-          {/* Formulário com evento onSubmit que chama handleSubmit */}
+          {/* Formulário com evento onSubmit que chama handleSubmit "cuida da validação dos dados*/}
           <form onSubmit={handleSubmit}>
 
             {/* Campo para digitar o nome do produto */}
